@@ -22,13 +22,25 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+
+      // get current uid
+      username = Date.now();
+      socket.emit('new user', username, function(data){});
+      console.log('Your name: ' + username);
+
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
+        socket.emit('send message', $('#m').val());
         $('#m').val('');
         return false;
       });
-      socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+      socket.on('new message', function(data){
+        $('#messages').append($('<li>').text(data.message + 'By:'+data.username));
+      });
+
+      socket.on('get users', function(data){
+        for (var i = data.length - 1; i >= 0; i--) {
+          console.log(data[i]);
+        }
       });
     </script>
   </body>
