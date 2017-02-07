@@ -41,8 +41,8 @@ io.on('connection', function(socket){
     });
   });
 
-  socket.on('new user', function (data,callback) {
-    console.log('new user sent to server');
+  socket.on('user join', function (data,callback) {
+    console.log('new user join');
     callback(true);
     socket.username = data;
     users.push(socket.username);
@@ -51,8 +51,21 @@ io.on('connection', function(socket){
 
   function updateUsernames(){
     // socket.emit('get users',users);//Update only current session!
-    io.sockets.emit('get users',users);//update all!
+    io.sockets.emit('users update',users);//update all!
     // socket.broadcast.emit('get users',users);//update except current session!
   }
   //TODO: 用户正在输入！
+  // when the client emits 'typing', we broadcast it to others
+    socket.on('typing', function () {
+      socket.broadcast.emit('typing', {
+        username: socket.username
+      });
+    });
+
+  // when the client emits 'stop typing', we broadcast it to others
+    socket.on('stop typing', function () {
+      socket.broadcast.emit('stop typing', {
+        username: socket.username
+      });
+    });
 });
