@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        min-height: 55px;
+        max-height: 200px;
+    }
+    #footer textarea{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #565867;
+      background-color: #f0f3f5;
+      resize: none;
+      border: none;
+      transition: background-color .2s ease,box-shadow .2s ease;
+    }
+    #footer pre{
+      visibility: hidden;
+    }
+    #footer pre,#footer textarea{
+          box-sizing: border-box;
+          padding: 18px;
+          padding-right: 100px;
+          padding-left: 30px;
+          width: 100%;
+          font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.33;
+          white-space: pre;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+    }
+
+    #footer textarea:focus {
+        outline: none;
+        background-color: #fff;
+        box-shadow: 0 0 100px 0 rgba(150,165,190,.24);
+    }
+    .send-button {
+    background-image: url(https://js.intercomcdn.com/images/mobile-send.25dfd680.png);
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: 11.5px;
+    position: absolute;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    background-color: #1F8CEB;
+    transition: opacity .12s ease-in;
+}
+    .send-button{
+      background-image: url(https://js.intercomcdn.com/images/mobile-send@2x.5a60f4ee.png);
+    }
+    .upload-button {
+        background-image: url(https://js.intercomcdn.com/images/upload-button@2x.778e88c4.png);
+    }
+    .upload-button {
+      background-image: url(https://js.intercomcdn.com/images/upload-button.8b4cd3fb.png);
+      background-size: 14px 16px;
+      background-repeat: no-repeat;
+      right: 25px;
+      opacity: .7;
+  }
+ .upload-button,.upload-button {
+    position: absolute;
+    bottom: 0;
+    width: 35px;
+    height: 55px;
+    background-position: 50%;
+    cursor: pointer;
+    transition: opacity .12s ease-in;
+  }
+  #header{
+    height: 75px;
+    background-color: #2e87eb;
+    position: relative;
+  }
+  #header .header-content{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  #header .header-content .header-user{
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin-top: 21px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  #header .header-content .header-user img{
+    width: 32px;
+    height: 32px;
+  }
+  #header .header-content .header-text{
+    float: left;
+    padding-left: 10px;
+  }
+  #header .header-content .header-text h2{
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #header .header-content .header-text p{
+    color: hsla(0,0%,100%,.8);
+    font-size: 13px;
+    line-height: 1.3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #header .header-colse{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+  }
+  #header .header-colse:hover{
+    background-color: #2773cd;
+  }
+  #body .body-content{
+    background-color: #f2f2f2;
+    padding: 0 15px 50px;
+  }
+  #body .body-content .sent-info, #body .body-content .get-info{
+    border-radius: 10px;
+    background-color: #2e86eb;
+    display: inline-block;
+    color: #fff;
+    line-height: 1.4;
+    font-size: 14px;
+    padding: 15px;
+    margin-top: 15px;
+    
+  }
+  #body .body-content .sent-info{
+    float: right;
+    margin-right: 15px;
+  }
+  #body .body-content .get-info{
+    float: left;
+    margin-left: 15px;
+  }
+  #body .body-content .sisterm-info-right{
+    color: #ccc;
+    line-height: 30px;
+    text-align: left;
+    padding-right: 15px;
+    float: right;
+  }
+  #body .body-content .sisterm-info-left{
+    color: #ccc;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 15px;
+    float: left;
+  }
+  #body .body-content > div , #body .body-content:after{
+    content: ' ';
+    display: block;
+    clear: both;
+  }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" id="header">
+          <div class="header-content">
+            <div class="header-user">
+              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1486451328079&di=9274f80da0d777847b05eeb3f0c353bf&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201408%2F04%2F20140804204624_xSeGA.png" alt="">
+            </div>
+            <div class="header-text">
+              <h2>Intercom</h2>
+              <p>Typically replies in under 2h</p>
+            </div>
+          </div>
+          <div class="header-colse">x</div>  
+      </div>
+      <div class="row" id="body">
+        <div class="body-content">
+          <div>
+            <div class="sent-info">长风破浪会有时，直挂云帆济沧海。</div>
+          </div>
+          <div>
+            <div class="sisterm-info-right">Intercom typically replies in under 2h. Don’t miss their reply.</div>
+          </div>
+          <div>
+            <div class="get-info">读书破万卷，下笔如有神。</div>
+          </div>
+          <div>
+            <div class="sisterm-info-left">Intercom typically replies in under 2h. Don’t miss their reply.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="footer">
+        <pre>
+          <br>
+        </pre>
+        <textarea name="" id="livechatinput" placeholder="Write a reply..." ></textarea>
+        <span></span>
+        <button class="send-button upload-button"></button>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
