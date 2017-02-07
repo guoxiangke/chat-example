@@ -50,7 +50,9 @@ io.on('connection', function(socket){
   });
 
   function updateUsernames(){
-    socket.emit('get users',users);
+    // socket.emit('get users',users);//Update only current session!
+    io.sockets.emit('get users',users);//update all!
+    // socket.broadcast.emit('get users',users);//update except current session!
   }
-
+  //TODO: 用户正在输入！
 });
